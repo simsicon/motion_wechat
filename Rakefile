@@ -3,6 +3,10 @@ require "bundler/gem_tasks"
 
 $:.unshift("/Library/RubyMotion/Lib")
 require 'motion/project'
-
 require 'rubygems'
-require 'motion_wechat'
+
+Bundler.setup
+Bundler.require
+
+
+# require 'lib/motion_wechat'
