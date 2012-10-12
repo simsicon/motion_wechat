@@ -1,31 +1,31 @@
 module MotionWechat
-  class Interface
+  module Interface
 
-    def self.send_image_content(image_path, opts = {})
+    def send_image_content(image_path, opts = {})
       sendImageContent(image_path, opts = {})
     end
 
-    def self.send_news_content(page_url, opts = {})
+    def send_news_content(page_url, opts = {})
       sendNewsContent(page_url, opts = {})
     end
 
-    def self.send_music_content(music_url, opts = {})
+    def send_music_content(music_url, opts = {})
       sendMusicContent(music_url, opts = {})
     end
 
-    def self.send_video_content(video_url, opts = {})
+    def send_video_content(video_url, opts = {})
       sendVideoContent(video_url, opts = {})
     end
 
-    def self.send_text_content(message)
+    def send_text_content(message)
       sendTextContent(message)
     end
 
-    def self.send_app_content(ext_info, url, data, opts = {})
+    def send_app_content(ext_info, url, data, opts = {})
       sendAppContent(ext_info, url, data, opts = {})
     end
 
-    def self.sendImageContent(image_path, opts = {})
+    def sendImageContent(image_path, opts = {})
       message = media_message(opts)
 
       ext = WXImageObject.object
@@ -38,7 +38,7 @@ module MotionWechat
       WXApi.sendReq(req)
     end
 
-    def self.sendNewsContent(page_url, opts = {})
+    def sendNewsContent(page_url, opts = {})
       message = media_message(opts)
       
       ext = WXWebpageObject.object
@@ -51,7 +51,7 @@ module MotionWechat
       WXApi.sendReq(req)
     end
 
-    def self.sendMusicContent(music_url, opts = {})
+    def sendMusicContent(music_url, opts = {})
       message = media_message(opts)
       
       ext = WXMusicObject.object
@@ -64,7 +64,7 @@ module MotionWechat
       WXApi.sendReq(req)
     end
 
-    def self.sendVideoContent(video_url, opts = {})
+    def sendVideoContent(video_url, opts = {})
       message = media_message(opts)
       
       ext = WXVideoObject.object
@@ -77,13 +77,13 @@ module MotionWechat
       WXApi.sendReq(req)
     end
 
-    def self.sendTextContent(message)
+    def sendTextContent(message)
       req = wrap_req(message, is_text: true)
       
       WXApi.sendReq(req)
     end
 
-    def self.sendAppContent(ext_info, url, data, opts = {})
+    def sendAppContent(ext_info, url, data, opts = {})
       message = media_message
       
       ext = WXAppExtendObject.object
