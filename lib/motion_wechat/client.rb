@@ -7,7 +7,7 @@ module MotionWechat
     end
 
     def handle_openURL(url, delegate)
-      WXApi.handleOpenURL(url, delegate:self)
+      WXApi.handleOpenURL(url, delegate:delegate)
     end
 
   end

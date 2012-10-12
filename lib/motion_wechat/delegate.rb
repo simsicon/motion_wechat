@@ -1,5 +1,5 @@
 module MotionWechat
-  class Delegate
+  module Delegate
 
     def onReq
       title = 'onReq'
