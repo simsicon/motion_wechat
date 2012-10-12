@@ -1,8 +1,8 @@
 module MotionWechat
   module Interface
 
-    def send_image_content(image_path, opts = {})
-      sendImageContent(image_path, opts = {})
+    def send_image_content(image_path = '', image_data = nil, opts = {})
+      sendImageContent(image_path, image_data, opts = {})
     end
 
     def send_news_content(page_url, opts = {})
@@ -25,11 +25,12 @@ module MotionWechat
       sendAppContent(ext_info, url, data, opts = {})
     end
 
-    def sendImageContent(image_path, opts = {})
+    def sendImageContent(image_path = '', image_data = nil, opts = {})
       message = media_message(opts)
 
       ext = WXImageObject.object
-      ext.imageData = NSData.dataWithContentsOfFile(image_path)
+      ext.imageData = NSData.dataWithContentsOfFile(image_path) if image_path
+      ext.imageData = image_data if image_data
       
       message.mediaObject = ext
 
