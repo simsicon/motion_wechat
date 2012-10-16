@@ -99,6 +99,23 @@ module MotionWechat
       WXApi.sendReq(req)
     end
 
+    def getWXAppInstallUrl
+      WXApi.getWXAppInstallUrl
+    end
+
+    def isWXAppInstalled
+      WXApi.isWXAppInstalled
+    end
+
+    def isWXAppSupportApi
+      WXApi.isWXAppSupportApi
+    end
+
+    def openWXApp
+      WXApi.openWXApp
+    end
+
+
     private
     def wrap_req(message, opts = {})
       req = SendMessageToWXReq.alloc.init
